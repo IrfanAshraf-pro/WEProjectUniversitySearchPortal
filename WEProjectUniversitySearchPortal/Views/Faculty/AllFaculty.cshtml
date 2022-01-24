@@ -1,0 +1,50 @@
+﻿@model IEnumerable<WEProjectUniversitySearchPortal.Models.Faculty>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<section class="bg-light">
+    <div class="container py-5">
+        <div class="row text-center py-3">
+            <div class="col-lg-6 m-auto">
+                <h1 class="h1">@Request.QueryString["uname"]</h1>
+            </div>
+            </div>
+            <div class="row text-center py-3">
+
+                <div class="col-lg-6 m-auto">
+                    <h1 class="h1">Faculty</h1>
+                    <p>
+                        These are the Faculty members of universitry @Request.QueryString["uname"]
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+
+                @foreach (var item in Model)
+                {
+
+                    <div class="col-12 col-md-4 mb-4">
+                        <div class="card h-100">
+                            <a href="shop-single.html">
+                                <img src=@item.fpath class="card-img-top" alt="..." height="200" width="300">
+
+
+                            </a>
+                            <div class="card-body">
+
+                                <b class="card-title">@item.name</b>
+                                <p class="card-text">
+                                    @item.experience<br />
+
+                                </p>
+
+
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+</section>

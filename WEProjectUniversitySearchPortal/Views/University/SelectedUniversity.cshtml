@@ -1,0 +1,20 @@
+﻿<html>
+<body>
+    <b>Selected Univeersity : </b>
+    <h1>
+        University Data
+    </h1>
+   
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-10">
+                <br /><br />
+                <b>University Name:</b>@Request.QueryString["uname"]<br /><br />
+                <li>@Html.ActionLink("Faculty", "AllFaculty", "Faculty",new { uniId = Request.QueryString["uniId"], uname = Request.QueryString["uname"] },null)</li>
+                <li>@Html.ActionLink("Programs", "AllPrograms","Program", new { uniId = Request.QueryString["uniId"], uname = Request.QueryString["uname"]},null)</li>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<WEProjectUniversitySearchPortal.Models.Program>
+
+
+<div class="col-lg-6 m-auto">
+    <h1 class="h1">@Request.QueryString["uname"]</h1>
+</div>
+<div class="row text-center py-3">
+
+    <div class="col-lg-6 m-auto">
+        <h1 class="h1">Faculty</h1>
+        <p>
+            These are the Programs Offered by universitry @Request.QueryString["uname"]
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+        <div class="col-12 col-md-4 mb-4">
+            <div class="card h-100">
+                <h1>Program :@item.pName</h1>
+                <div class="card-body">
+                    <b class="card-title">Requirements  </b>@item.requirements
+                    <p class="card-text">
+                    <p class="btn btn-secondary">
+                        @Html.ActionLink("Select", "AllCourses", "Courses", new { uniId = Request.QueryString["uniId"], uname = Request.QueryString["uname"], programId = item.p_id,programname=item.pName }, null)
+                    </p>
+                    <br />
+
+                    </p>
+
+
+                </div>
+            </div>
+        </div>
+    }
+   </div>
+
+
